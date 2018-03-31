@@ -1,0 +1,8 @@
+
+{
+	"MotionState"{
+		"direction": "left"
+		"speed": "50.0"
+	} 	
+
+}

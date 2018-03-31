@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7FBA9A5B9FB169C82231EA91 /* libPods-LeapMotionControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5ECF3D5395ED3565A3EBA4 /* libPods-LeapMotionControl.a */; };
+		CC01C1A320702A64007CE06F /* libboost_atomic-mt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC01C1A220702A64007CE06F /* libboost_atomic-mt.a */; };
 		CCB02683206FFDEE002B4700 /* libLeap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCB02680206FFDED002B4700 /* libLeap.dylib */; };
 		CCB02688206FFE94002B4700 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CCB02687206FFE93002B4700 /* main.cpp */; };
 /* End PBXBuildFile section */
@@ -24,11 +26,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A78884DF81D73EE17486044C /* Pods-LeapMotionControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeapMotionControl.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeapMotionControl/Pods-LeapMotionControl.release.xcconfig"; sourceTree = "<group>"; };
+		AC5ECF3D5395ED3565A3EBA4 /* libPods-LeapMotionControl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LeapMotionControl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC01C1A220702A64007CE06F /* libboost_atomic-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_atomic-mt.a"; path = "../../../../../../../usr/local/Cellar/boost/1.66.0/lib/libboost_atomic-mt.a"; sourceTree = "<group>"; };
 		CCB02675206FFD7F002B4700 /* LeapMotionControl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LeapMotionControl; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCB0267F206FFDED002B4700 /* LeapMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeapMath.h; sourceTree = "<group>"; };
 		CCB02680206FFDED002B4700 /* libLeap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libLeap.dylib; sourceTree = "<group>"; };
 		CCB02682206FFDEE002B4700 /* Leap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leap.h; sourceTree = "<group>"; };
 		CCB02687206FFE93002B4700 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D33201DE9F8B5BF3FF62AF55 /* Pods-LeapMotionControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeapMotionControl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeapMotionControl/Pods-LeapMotionControl.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,18 +42,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC01C1A320702A64007CE06F /* libboost_atomic-mt.a in Frameworks */,
 				CCB02683206FFDEE002B4700 /* libLeap.dylib in Frameworks */,
+				7FBA9A5B9FB169C82231EA91 /* libPods-LeapMotionControl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A35899C5710096C46905D02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC01C1A220702A64007CE06F /* libboost_atomic-mt.a */,
+				AC5ECF3D5395ED3565A3EBA4 /* libPods-LeapMotionControl.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6D2DDEA5E9685630A5BCBEDD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D33201DE9F8B5BF3FF62AF55 /* Pods-LeapMotionControl.debug.xcconfig */,
+				A78884DF81D73EE17486044C /* Pods-LeapMotionControl.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CCB0266C206FFD7F002B4700 = {
 			isa = PBXGroup;
 			children = (
 				CCB02677206FFD7F002B4700 /* LeapMotionControl */,
 				CCB02676206FFD7F002B4700 /* Products */,
+				6D2DDEA5E9685630A5BCBEDD /* Pods */,
+				0A35899C5710096C46905D02 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,9 +105,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CCB0267C206FFD7F002B4700 /* Build configuration list for PBXNativeTarget "LeapMotionControl" */;
 			buildPhases = (
+				7F8AAF9C6C55697EB18F965B /* [CP] Check Pods Manifest.lock */,
 				CCB02671206FFD7F002B4700 /* Sources */,
 				CCB02672206FFD7F002B4700 /* Frameworks */,
 				CCB02673206FFD7F002B4700 /* CopyFiles */,
+				EF3A11221B873A861E46FAEE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -122,6 +152,42 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7F8AAF9C6C55697EB18F965B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LeapMotionControl-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF3A11221B873A861E46FAEE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LeapMotionControl/Pods-LeapMotionControl-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CCB02671206FFD7F002B4700 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -137,7 +203,7 @@
 		CCB0267A206FFD7F002B4700 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -182,17 +248,30 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/boost/1.66.0/include/boost,
+					/usr/local/Cellar/boost/1.66.0/include,
+					/usr/local/Cellar/cpprestsdk/2.10.2/include/cpprest,
+					/usr/local/Cellar/cpprestsdk/2.10.2/lib,
+					/usr/local/Cellar/openssl/1.0.2o_1/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/cpprestsdk/2.10.2/lib,
+					/usr/local/Cellar/boost/1.66.0/lib,
+					/usr/local/Cellar/openssl/1.0.2o_1/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "/usr/local/Cellar/cpprestsdk/2.10.2/include /usr/local/Cellar/boost/1.66.0/include /usr/local/Cellar/openssl/1.0.2o_1/include";
 			};
 			name = Debug;
 		};
 		CCB0267B206FFD7F002B4700 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -231,19 +310,34 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/boost/1.66.0/include/boost,
+					/usr/local/Cellar/boost/1.66.0/include,
+					/usr/local/Cellar/cpprestsdk/2.10.2/include/cpprest,
+					/usr/local/Cellar/cpprestsdk/2.10.2/lib,
+					/usr/local/Cellar/openssl/1.0.2o_1/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/cpprestsdk/2.10.2/lib,
+					/usr/local/Cellar/boost/1.66.0/lib,
+					/usr/local/Cellar/openssl/1.0.2o_1/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "/usr/local/Cellar/cpprestsdk/2.10.2/include /usr/local/Cellar/boost/1.66.0/include /usr/local/Cellar/openssl/1.0.2o_1/include";
 			};
 			name = Release;
 		};
 		CCB0267D206FFD7F002B4700 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D33201DE9F8B5BF3FF62AF55 /* Pods-LeapMotionControl.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LeapMotionControl",
+					/usr/local/Cellar/cpprestsdk/2.10.2/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -251,11 +345,13 @@
 		};
 		CCB0267E206FFD7F002B4700 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A78884DF81D73EE17486044C /* Pods-LeapMotionControl.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LeapMotionControl",
+					/usr/local/Cellar/cpprestsdk/2.10.2/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -12,6 +12,16 @@
 
 using namespace Leap;
 
+/*
+"MotionState": [
+             {
+             "direction": "left"
+             "speed":"50.00"
+             }
+             ]
+ 
+ */
+
 class SampleListener : public Listener {
 public:
     virtual void onInit(const Controller&);
@@ -24,6 +34,7 @@ public:
     virtual void onDeviceChange(const Controller&);
     virtual void onServiceConnect(const Controller&);
     virtual void onServiceDisconnect(const Controller&);
+//    web::json::value createJson(std::string direction, float speed);
     enum SignificantDirection {
         vertical,horizontal
     };
@@ -31,6 +42,8 @@ public:
     enum FilmDirection {
         film_stop, film_left, film_right, film_forward, film_backward
     };
+    
+    
 private:
     
     SignificantDirection checkSignificantDirection(const Leap::Vector& direction);
@@ -108,6 +121,7 @@ void SampleListener::onFrame(const Controller& controller) {
             {
                 SwipeGesture swipe = gesture;
                 SignificantDirection realDirect = checkSignificantDirection(swipe.direction());
+
                 if (!mCurrHand.isLeft() && stateNames[gesture.state()] == "STATE_START"  && realDirect == horizontal)
                 {
                     if (swipe.direction().x > 0 && mCurrDirection != film_right)
@@ -187,6 +201,18 @@ void SampleListener::onServiceConnect(const Controller& controller) {
 void SampleListener::onServiceDisconnect(const Controller& controller) {
     std::cout << "Service Disconnected" << std::endl;
 }
+
+
+//web::json::value SampleListener::createJson(std::string direction, float speed){
+//    web::json::value retVal;
+////    web::json::value motionState;
+////    motionState["direction"] = web::json::value::string(direction);
+////    motionState["speed"]  = web::json::value::number(speed);
+////    std::vector<web::json::value> arrayStates;
+////    arrayStates.push_back(motionState);
+////    retVal["MotionState"] = web::json::value::array(arrayStates);
+//    return retVal;
+//}
 
 int main(int argc, char** argv) {
     

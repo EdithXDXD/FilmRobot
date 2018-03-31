@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <cstring>
+#include <fstream>
 #include "Leap.h"
 
 using namespace Leap;
@@ -35,6 +36,7 @@ public:
     virtual void onServiceConnect(const Controller&);
     virtual void onServiceDisconnect(const Controller&);
 //    web::json::value createJson(std::string direction, float speed);
+    void createJson(std::string direction, float speed);
     enum SignificantDirection {
         vertical,horizontal
     };
@@ -55,6 +57,24 @@ private:
 const std::string fingerNames[] = {"Thumb", "Index", "Middle", "Ring", "Pinky"};
 const std::string boneNames[] = {"Metacarpal", "Proximal", "Middle", "Distal"};
 const std::string stateNames[] = {"STATE_INVALID", "STATE_START", "STATE_UPDATE", "STATE_END"};
+
+void SampleListener::createJson(std::string direction, float speed)
+{
+    std::ofstream output ("data.txt");
+    if (output.is_open())
+    {
+    //output << "[" << std::endl;
+        output << "{" << std::endl;
+        output << "     \"direction\": " << "\"" << direction << "\"," << std::endl;
+        output << "     \"speed\": " << "\"" << speed << "\"" << std::endl;
+        output << "}" << std::endl;
+     //   output << "]" << std::endl;
+    }
+    output.close();
+    
+    system("bash sendRequest.sh");
+}
+
 
 void SampleListener::onInit(const Controller& controller) {
     mCurrDirection = film_stop;
@@ -128,11 +148,13 @@ void SampleListener::onFrame(const Controller& controller) {
                     {
                         std::cout << "right" << std::endl;
                         mCurrDirection = film_right;
+                        createJson("right", swipe.speed());
                     }
                     if (swipe.direction().x < 0 && mCurrDirection != film_left)
                     {
                         std::cout << "left" << std::endl;
                         mCurrDirection = film_left;
+                        createJson("left", swipe.speed());
                     }
                 }
                 else if (!mCurrHand.isLeft() && stateNames[gesture.state()] == "STATE_START" && realDirect == vertical)
@@ -141,11 +163,12 @@ void SampleListener::onFrame(const Controller& controller) {
                     {
                         mCurrDirection = film_backward;
                         std::cout << "backward" << std::endl;
+                        createJson("backward", swipe.speed());
                     }
                     if (swipe.direction().z < 0 && mCurrDirection != film_forward)
                     {
                         mCurrDirection = film_forward;
-                        std::cout << "forward" << std::endl;
+                        createJson("forward", swipe.speed());
                     }
                 }
                 
@@ -153,6 +176,7 @@ void SampleListener::onFrame(const Controller& controller) {
                 {
                     mCurrDirection = film_stop;
                     std::cout << "stop" << std::endl;
+                    createJson("stop", swipe.speed());
                 }
                 
                 break;

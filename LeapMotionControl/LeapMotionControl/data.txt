@@ -1,8 +1,4 @@
-
 {
-	"MotionState"{
-		"direction": "left"
-		"speed": "50.0"
-	} 	
-
+     "direction": "backward",
+     "speed": "138.733"
 }
